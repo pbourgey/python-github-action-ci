@@ -2,7 +2,7 @@ name: Surveillance V.I.E
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '23 * * * *'
   workflow_dispatch:
 
 permissions:
