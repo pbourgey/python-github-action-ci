@@ -60,13 +60,29 @@ PAYLOAD = {
 
 HEADERS = {"Content-Type": "application/json", "x-api-key": API_KEY}
 
+MONTHS_FR = {
+    1: "Janvier",
+    2: "Février",
+    3: "Mars",
+    4: "Avril",
+    5: "Mai",
+    6: "Juin",
+    7: "Juillet",
+    8: "Août",
+    9: "Septembre",
+    10: "Octobre",
+    11: "Novembre",
+    12: "Décembre",
+}
+
 
 def format_date(iso_string):
   if not iso_string:
     return "Non précisée"
   try:
     date_part = iso_string.split("T")[0]
-    return datetime.strptime(date_part, "%Y-%m-%d").strftime("%d/%m/%Y")
+    dt = datetime.strptime(date_part, "%Y-%m-%d")
+    return f"{MONTHS_FR[dt.month]} {dt.year}"
   except Exception:
     return iso_string.split("T")[0]
 
